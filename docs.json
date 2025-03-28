@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "AltrumAI Docs",
   "colors": {
-    "primary": "#212331",
-    "light": "#212331",
-    "dark": "#212331"
+    "primary": "#126FFF",
+    "light": "#126FFF",
+    "dark": "#126FFF"
   },
   "favicon": "/altrum_logo.svg",
   "navigation": {
