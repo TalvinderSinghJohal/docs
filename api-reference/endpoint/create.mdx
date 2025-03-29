@@ -2,20 +2,3 @@
 title: 'Chat Completions (OpenAI Proxy)'
 openapi: 'POST /v1/openai/chat/completions'
 ---
-
-Returns a response from the OpenAI-compatible proxy using a specified model and conversation history.
-
-### Request Headers
-- `Authorization`: Bearer token from OpenAI
-- `Project-Api-Key`: Your AltrumAI project API key
-
-### Request Body
-```json
-{
-  "model": "gpt-4",
-  "messages": [
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "Hello!"}
-  ],
-  "stream": false
-}
