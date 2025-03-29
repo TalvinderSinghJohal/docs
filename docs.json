@@ -25,11 +25,10 @@
             "group": "Product Guide",
             "pages": [
               "product-guide/user-onboarding",
-              "product-guide/markdown",
-              "product-guide/images",
-              "product-guide/settings",
-              "product-guide/navigation",
-              "product-guide/reusable-snippets"
+              "product-guide/projects",
+              "product-guide/reporting",
+              "product-guide/permissions",
+              "product-guide/navigation"
             ]
           }
         ]
