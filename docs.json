@@ -66,14 +66,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
           "anchor": "Webssite",
           "href": "https://www.altrum.ai",
-          "icon": "slack"
+          "icon": "globe-pointer"
         },
         {
           "anchor": "Blog",
