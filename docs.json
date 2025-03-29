@@ -30,6 +30,14 @@
               "product-guide/permissions",
               "product-guide/policies"
             ]
+          },
+          {
+            "group": "Policy Overview",
+            "pages": [
+              "policies/data-privacy",
+              "get-started/quickstart",
+              "get-started/development"
+            ]
           }
         ]
       },
