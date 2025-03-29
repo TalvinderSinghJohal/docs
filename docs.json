@@ -22,14 +22,14 @@
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Product Guide",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "product-guide/markdown",
+              "product-guide/user-onboarding",
+              "product-guide/images",
+              "product-guide/settings",
+              "product-guide/navigation",
+              "product-guide/reusable-snippets"
             ]
           }
         ]
