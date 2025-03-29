@@ -121,7 +121,7 @@
                   "Amazon Bedrock Proxy"
               ],
               "summary": "Chat Completions",
-              "description": "***Acts as an Amazon Bedrock Proxy for the APIs.***<br> \n                `Note: Only Chat Completion LLMs are compatible with this proxy`<br>\n                Before you can begin using Amazon Bedrock, ensure that you complete the following steps:<br>\n                i) Create an AWS Account. <br>\n                &emsp; - If you do not already have an AWS account, you must create one. <br>\n                ii) Set Up an AWS Identity and Access Management (IAM) Role. <br>\n                &emsp; - Create an IAM role with the necessary permissions to access and use Amazon Bedrock. <br>\n                iii) Request Access to Foundation Models (FM). <br>\n                &emsp; - Submit a request to gain access to the specific foundation models you intend to use. <br>\n                <p>\n                For users new to AWS, select <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html#new-to-aws\">I'm new to AWS</a>.\n                to follow the steps to create an account. If you already have an AWS account, you may skip this step and select <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started.html#getting-started-bedrock-role\"> I already have an AWS account</a>.\n                <br><br>\n                </p>\n                `Amazon Bedrock Models:` <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html\">Supported Models List</a>.",
+              "description": "***Acts as an Amazon Bedrock Proxy for the APIs.***",
               "operationId": "chat_completions_v1_amazon_bedrock_chat_completions_post",
               "parameters": [
                   {
@@ -543,7 +543,7 @@
                   },
                   {
                       "lang": "Javascript",
-                      "source": "const { OpenAI } = require(\"openai\");\n\nconst openai = new OpenAI({\n    baseURL: \"http://ec2-13-234-244-55.ap-south-1.compute.amazonaws.com:3003/v1/anthropic/\",\n    defaultHeaders: {\n        \"Project-Api-Key\": \"\",\n        \"Authorization\":\"\"},\n    apiKey: \"anything\"\n});\n\n(async () => {\n        const response = await openai.chat.completions.create({\n            model: \"claude-3-opus-20240229\",\n            messages: [\n                { role: \"system\", content: \"You are a helpful assistant\" },\n                { role: \"user\", content: \"Hello\" }\n            ],\n            stream: false\n        });\n        console.log(response.choices[0].message.content);\n}\n)();\n\n",
+                      "source": "const { OpenAI } = require(\"openai\");\n\nconst openai = new OpenAI({\n    baseURL: \"http://ec2-13-234-244-55.ap-south-1.compute.amazonaws.com:3003/v1/anthropic/\",\n    defaultHeaders: {\n        \"Project-Api-Key\": \"YOUR_PROJECT_API_KEY\",\n        \"Authorization\":\"YOUR_AUTHORIZATION_HEADER\"},\n    apiKey: \"anything\"\n});\n\n(async () => {\n        const response = await openai.chat.completions.create({\n            model: \"claude-3-opus-20240229\",\n            messages: [\n                { role: \"system\", content: \"You are a helpful assistant\" },\n                { role: \"user\", content: \"Hello\" }\n            ],\n            stream: false\n        });\n        console.log(response.choices[0].message.content);\n}\n)();\n\n",
                       "label": "Javascript"
                   }
               ]
