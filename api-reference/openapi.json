@@ -360,7 +360,7 @@
                   "Azure AI Studio Proxy"
               ],
               "summary": "Chat Completions",
-              "description": "***Acts as an Azure AI Studio Proxy for the APIs.***<br> \n                `Note: Only Chat Completion LLMs are compatible with this proxy`",
+              "description": "***Acts as an Azure AI Studio Proxy for the APIs.***",
               "operationId": "chat_completions_v1_azure_ai__endpoint__chat_completions_post",
               "parameters": [
                   {
