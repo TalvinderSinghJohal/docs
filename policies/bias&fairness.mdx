@@ -1,0 +1,115 @@
+---
+title: Bias & Fairness
+description: "Detailed overview of each AltrumAI policy including purpose, features, and usage guidance."
+---
+
+## Introduction
+
+This section provides comprehensive documentation on each configurable policy available within the AltrumAI platform. These policies are designed to help organisations implement ethical, compliant, and secure AI usage by controlling how data is handled and how AI behaviors are governed.
+
+<CardGroup cols={2}>
+  <Card
+    title="Data Privacy"
+    icon="lock"
+    href="#data-privacy-policy"
+  >
+    Prevents the transmission or exposure of sensitive data in prompts and responses.
+  </Card>
+  <Card
+    title="Bias & Fairness"
+    icon="balance-scale"
+    href="#bias-and-fairness-policy"
+  >
+    (Coming Soon) Ensure equitable AI behavior across demographics.
+  </Card>
+  <Card
+    title="Toxic Content"
+    icon="radiation"
+    href="#toxic-content-policy"
+  >
+    (Coming Soon) Blocks harmful, offensive, or inappropriate outputs.
+  </Card>
+</CardGroup>
+
+---
+
+## Data Privacy Policy
+
+The Data Privacy Policy is a configurable mechanism designed to protect sensitive and regulated data during interactions with a Language Model (LLM). It ensures that confidential information is not transmitted to and from the LLM, maintaining security and compliance. Organisations have full control over the policy's settings, enabling them to select from a wide range of regulatory frameworks (e.g., GDPR, HIPAA, PCI-DSS) or create custom configurations tailored to their specific needs selecting from a range of sensitive data types.
+
+### What the Policy Does
+
+- **Purpose**: Protects sensitive and regulated information during LLM interactions and enables compliance with industry regulations while offering custom configuration options.
+- **Scope**:
+  - **Prompt Configuration**: Governs inputs before they're sent to the LLM
+    - Regulation or Custom Entity Selection
+    - Operational Modes: Monitor Only / Monitor & Override
+    - Prevents sensitive prompts from reaching the LLM
+  - **Response Configuration**: Governs outputs returned by the LLM
+    - Similar entity and mode options as prompts
+    - Prevents non-compliant outputs from being shown to users
+- **Key Features**:
+  - Regulation presets with predefined entities
+  - 52 custom entity options for advanced control
+
+### Why Use This Policy?
+
+#### Benefits
+- Enhanced data security
+- Regulatory compliance (e.g., GDPR, HIPAA, CPRA)
+- Customisable enforcement options
+
+#### Use Case: Law Firm Scenario
+
+A prominent law firm uses AltrumAI to draft contracts and perform legal research. To ensure compliance and client confidentiality:
+
+- **Prompt Configuration**:
+  - Enforces GDPR and CPRA
+  - Adds custom detection for names, settlements, etc.
+  - Uses **Monitor & Override** to block sensitive prompts
+- **Response Configuration**:
+  - Initially set to **Monitor Only**
+  - Switched to **Monitor & Override** after reviewing risks
+
+This ensures both inputs and outputs are compliant and secure.
+
+### How to Use the Policy
+
+#### Enabling the Policy
+
+1. Open a connected project  
+2. Click **Configure Policies**  
+3. Click **Configure** on the Data Privacy card  
+4. Enable **Prompt Configuration** toggle  
+5. Click **Save** (does not apply policy)  
+6. After closing, click **Apply** to enforce the configuration  
+
+![Placeholder for enabling policy screenshot]
+
+#### Configuring the Custom Entities/Regulations
+
+1. Select regulations from the dropdown (e.g., GDPR, HIPAA)  
+2. Chosen items appear as blue tags  
+3. Scroll to **Custom Entities** to select from a dropdown  
+4. Tags can be removed using the “X”  
+
+![Placeholder for custom entity config screenshot]
+
+#### Configuring the Behaviour
+
+1. Go to **Choose Behaviour**  
+2. Select either **Monitor Only** or **Monitor & Override** from the dropdown  
+
+![Placeholder for behaviour config screenshot]
+
+#### Saving and Applying the Policy
+
+1. Click **Save** to keep changes in the interface  
+2. Click **Apply** to enforce settings on the project  
+3. A success message will confirm application  
+
+![Placeholder for apply success screenshot]
+
+---
+
+Stay tuned as more policies (e.g., Bias and Fairness, Toxic Content) are added to this overview. Let us know if you'd like to prioritise documentation for a specific upcoming policy.

@@ -17,8 +17,7 @@
             "group": "Get Started",
             "pages": [
               "get-started/introduction",
-              "get-started/quickstart",
-              "get-started/development"
+              "get-started/quickstart"
             ]
           },
           {
@@ -34,7 +33,14 @@
           {
             "group": "Policy Overview",
             "pages": [
-              "policies/data-privacy"
+              "policies/data-privacy",
+              "policies/toxicitiy",
+              "policies/bias&fairness",
+              "policies/competitor-mention",
+              "policies/topic-restriction",
+              "policies/sensitive-topic",
+              "policies/hallucinations",
+              "policies/prompt-injection"
             ]
           }
         ]
@@ -66,7 +72,7 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Webssite",
+          "anchor": "Website",
           "href": "https://www.altrum.ai",
           "icon": "globe-pointer"
         },
