@@ -3,9 +3,9 @@ title: Restrict to Topic
 description: "Detailed overview of each AltrumAI policy including purpose, features, and usage guidance."
 ---
 
-## Introduction
+## Overview
 
-This section provides comprehensive documentation on each configurable policy available within the AltrumAI platform. These policies are designed to help organisations implement ethical, compliant, and secure AI usage by controlling how data is handled and how AI behaviors are governed.
+The **Restrict to Topic Policy** empowers organisations to control the types of topics that can be discussed during interactions with a Language Model (LLM). By defining a set of **Valid Topics** (permitted content) and **Invalid Topics** (restricted content), organisations can align AI usage with business objectives, regulatory standards, and ethical practices. This policy helps ensure that AI-generated conversations stay relevant, secure, and compliant.
 
 <CardGroup cols={2}>
   <Card
@@ -33,83 +33,112 @@ This section provides comprehensive documentation on each configurable policy av
 
 ---
 
-## Data Privacy Policy
+## What the Policy Does
 
-The Data Privacy Policy is a configurable mechanism designed to protect sensitive and regulated data during interactions with a Language Model (LLM). It ensures that confidential information is not transmitted to and from the LLM, maintaining security and compliance. Organisations have full control over the policy's settings, enabling them to select from a wide range of regulatory frameworks (e.g., GDPR, HIPAA, PCI-DSS) or create custom configurations tailored to their specific needs selecting from a range of sensitive data types.
+### Purpose
 
-### What the Policy Does
+The primary goal of the Restrict to Topic Policy is to maintain content integrity by allowing only approved topics in AI interactions. Whether used to prevent off-topic discussions or to enforce strict content regulations, this policy enables organisations to:
 
-- **Purpose**: Protects sensitive and regulated information during LLM interactions and enables compliance with industry regulations while offering custom configuration options.
-- **Scope**:
-  - **Prompt Configuration**: Governs inputs before they're sent to the LLM
-    - Regulation or Custom Entity Selection
-    - Operational Modes: Monitor Only / Monitor & Override
-    - Prevents sensitive prompts from reaching the LLM
-  - **Response Configuration**: Governs outputs returned by the LLM
-    - Similar entity and mode options as prompts
-    - Prevents non-compliant outputs from being shown to users
-- **Key Features**:
-  - Regulation presets with predefined entities
-  - 52 custom entity options for advanced control
+- Maintain operational and ethical standards.
+- Limit the AI to approved business functions.
+- Prevent misuse or inappropriate use of the model.
+- Ensure compliance with internal and industry regulations.
 
-### Why Use This Policy?
+### Scope
 
-#### Benefits
-- Enhanced data security
-- Regulatory compliance (e.g., GDPR, HIPAA, CPRA)
-- Customisable enforcement options
+#### Configurable Topic Control
 
-#### Use Case: Law Firm Scenario
+Organisations can manage the AI’s scope of conversation using:
 
-A prominent law firm uses AltrumAI to draft contracts and perform legal research. To ensure compliance and client confidentiality:
+- **Valid Topics**: Topics that are explicitly allowed. These ensure that interactions remain business-focused and on-task.
+- **Invalid Topics**: Topics that are explicitly disallowed. These help prevent discussions that may be sensitive, non-compliant, or irrelevant.
 
-- **Prompt Configuration**:
-  - Enforces GDPR and CPRA
-  - Adds custom detection for names, settlements, etc.
-  - Uses **Monitor & Override** to block sensitive prompts
-- **Response Configuration**:
-  - Initially set to **Monitor Only**
-  - Switched to **Monitor & Override** after reviewing risks
+#### Prompt & Response Configuration
 
-This ensures both inputs and outputs are compliant and secure.
+The policy can be applied independently to user **prompts (inputs)** and LLM **responses (outputs)**:
 
-### How to Use the Policy
+- Enable topic filtering on prompts, responses, or both.
+- Apply unique settings for prompts and responses depending on the business context.
 
-#### Enabling the Policy
+#### Operational Modes
 
-1. Open a connected project  
-2. Click **Configure Policies**  
-3. Click **Configure** on the Data Privacy card  
-4. Enable **Prompt Configuration** toggle  
-5. Click **Save** (does not apply policy)  
-6. After closing, click **Apply** to enforce the configuration  
+- **Log Only**: The system flags and logs non-compliant prompts or responses without blocking them.
+- **Log and Override**: Prompts or responses containing restricted topics are blocked entirely, ensuring that inappropriate content is not transmitted or displayed.
 
-![Placeholder for enabling policy screenshot]
+#### Threshold Sensitivity
 
-#### Configuring the Custom Entities/Regulations
+A detection sensitivity threshold (range: **0.2 to 0.9**) allows fine-tuning of the model’s topic recognition:
 
-1. Select regulations from the dropdown (e.g., GDPR, HIPAA)  
-2. Chosen items appear as blue tags  
-3. Scroll to **Custom Entities** to select from a dropdown  
-4. Tags can be removed using the “X”  
+- **Lower thresholds** (e.g., 0.2) are more lenient, reducing false positives.
+- **Higher thresholds** (e.g., 0.9) are stricter, capturing more subtle or indirect topic violations.
 
-![Placeholder for custom entity config screenshot]
+### Key Features
 
-#### Configuring the Behaviour
-
-1. Go to **Choose Behaviour**  
-2. Select either **Monitor Only** or **Monitor & Override** from the dropdown  
-
-![Placeholder for behaviour config screenshot]
-
-#### Saving and Applying the Policy
-
-1. Click **Save** to keep changes in the interface  
-2. Click **Apply** to enforce settings on the project  
-3. A success message will confirm application  
-
-![Placeholder for apply success screenshot]
+- **Topic-Based Filtering**: Use allow-lists or block-lists to govern content scope.
+- **Prompt & Response Independence**: Configure controls independently for each direction of interaction.
+- **Flexible Enforcement Options**: Choose between monitoring and full blocking.
+- **Customisable Detection Sensitivity**: Adjust how strictly the AI enforces topic restrictions.
+- **Complete Logging**: All violations are logged for review, analysis, and compliance reporting.
 
 ---
 
-Stay tuned as more policies (e.g., Bias and Fairness, Toxic Content) are added to this overview. Let us know if you'd like to prioritise documentation for a specific upcoming policy.
+## Why Use This Policy?
+
+### Benefits
+
+- Maintains focus on approved business topics.
+- Reduces reputational and regulatory risk.
+- Prevents sensitive, speculative, or irrelevant discussions.
+- Enables automated, scalable topic governance.
+
+---
+
+## Use Case: Financial Services Governance
+
+### Scenario
+
+A global financial services firm uses an LLM-powered assistant internally to generate marketing copy, product comparisons, and training material. The company wants to ensure that content does not reference competitors like Company X, Y, or Z unless authorised.
+
+### Challenge
+
+Employees might unintentionally prompt the AI to mention competitor names or generate content that includes comparisons or references to rival platforms, breaching brand guidelines or legal constraints.
+
+### Solution: Implementing the Restrict to Topic Policy
+
+1. **Topic Configuration**  
+   - **Valid Topics**: Risk analysis, financial compliance, economic forecasting.  
+   - **Invalid Topics**: Client-specific discussions, investment predictions, non-business content.
+
+2. **Prompt & Response Filtering**  
+   - **Prompt Filtering**: Prevents employees from querying the AI about restricted subjects.  
+   - **Response Filtering**: Stops the LLM from generating answers that violate company policy.
+
+3. **Enforcement Mode & Sensitivity**  
+   - Mode set to **Log and Override** for complete control.  
+   - Sensitivity configured at **0.8** to ensure high accuracy in detecting restricted content.
+
+---
+
+## How to Use the Policy
+
+> **Note**: This section will be refined with full step-by-step UI guidance.
+
+### Enabling the Policy
+
+*Placeholder for enabling steps.*
+
+### Configuring Topics
+
+*Placeholder for topic configuration steps, including how to add Valid and Invalid Topics.*
+
+### Setting Behaviour & Threshold
+
+*Placeholder for choosing enforcement mode and adjusting detection sensitivity.*
+
+### Saving and Applying the Policy
+
+*Placeholder for UI walkthrough to save and apply policy settings.*
+
+---
+
+With the **Restrict to Topic Policy**, AltrumAI helps organisations maintain trusted, purposeful, and policy-aligned AI interactions—offering the oversight needed to support ethical AI use in business environments.

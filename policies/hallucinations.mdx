@@ -3,9 +3,10 @@ title: Hallucinations
 description: "Detailed overview of each AltrumAI policy including purpose, features, and usage guidance."
 ---
 
-## Introduction
+## Overview
 
-This section provides comprehensive documentation on each configurable policy available within the AltrumAI platform. These policies are designed to help organisations implement ethical, compliant, and secure AI usage by controlling how data is handled and how AI behaviors are governed.
+The **Hallucinations Policy** is designed to help organisations manage the risk of inaccurate, fabricated, or misleading information in AI-generated content. This policy applies solely to **responses** produced by the Language Model (LLM), offering simple enforcement controls to monitor or block outputs that do not align with factual accuracy or verified information.
+By activating this policy, organisations can reduce the risk of misinformation, preserve credibility, and ensure AI responses are trustworthy and aligned with organisational standards.
 
 <CardGroup cols={2}>
   <Card
@@ -33,83 +34,89 @@ This section provides comprehensive documentation on each configurable policy av
 
 ---
 
-## Data Privacy Policy
+## What the Policy Does
 
-The Data Privacy Policy is a configurable mechanism designed to protect sensitive and regulated data during interactions with a Language Model (LLM). It ensures that confidential information is not transmitted to and from the LLM, maintaining security and compliance. Organisations have full control over the policy's settings, enabling them to select from a wide range of regulatory frameworks (e.g., GDPR, HIPAA, PCI-DSS) or create custom configurations tailored to their specific needs selecting from a range of sensitive data types.
+### Purpose
 
-### What the Policy Does
+The Hallucinations Policy safeguards against the generation of responses that may contain:
 
-- **Purpose**: Protects sensitive and regulated information during LLM interactions and enables compliance with industry regulations while offering custom configuration options.
-- **Scope**:
-  - **Prompt Configuration**: Governs inputs before they're sent to the LLM
-    - Regulation or Custom Entity Selection
-    - Operational Modes: Monitor Only / Monitor & Override
-    - Prevents sensitive prompts from reaching the LLM
-  - **Response Configuration**: Governs outputs returned by the LLM
-    - Similar entity and mode options as prompts
-    - Prevents non-compliant outputs from being shown to users
-- **Key Features**:
-  - Regulation presets with predefined entities
-  - 52 custom entity options for advanced control
+- Fabricated facts or data.
+- Misleading or unverifiable claims.
+- Inaccurate references or attributions.
 
-### Why Use This Policy?
+By identifying and acting on such content, the policy supports responsible AI communication—especially in high-stakes environments like legal, medical, financial, and regulatory use cases.
 
-#### Benefits
-- Enhanced data security
-- Regulatory compliance (e.g., GDPR, HIPAA, CPRA)
-- Customisable enforcement options
+### Scope
 
-#### Use Case: Law Firm Scenario
+#### Response Configuration Only
 
-A prominent law firm uses AltrumAI to draft contracts and perform legal research. To ensure compliance and client confidentiality:
+This policy exclusively applies to **AI-generated responses**. It does not evaluate or restrict user-submitted prompts.
 
-- **Prompt Configuration**:
-  - Enforces GDPR and CPRA
-  - Adds custom detection for names, settlements, etc.
-  - Uses **Monitor & Override** to block sensitive prompts
-- **Response Configuration**:
-  - Initially set to **Monitor Only**
-  - Switched to **Monitor & Override** after reviewing risks
+#### Operational Modes
 
-This ensures both inputs and outputs are compliant and secure.
+- **Log Only**: Detects and logs hallucinated content without blocking the response.
+- **Log and Override**: Blocks the LLM’s output if it contains hallucinated or unverifiable information.
 
-### How to Use the Policy
+### Key Features
 
-#### Enabling the Policy
-
-1. Open a connected project  
-2. Click **Configure Policies**  
-3. Click **Configure** on the Data Privacy card  
-4. Enable **Prompt Configuration** toggle  
-5. Click **Save** (does not apply policy)  
-6. After closing, click **Apply** to enforce the configuration  
-
-![Placeholder for enabling policy screenshot]
-
-#### Configuring the Custom Entities/Regulations
-
-1. Select regulations from the dropdown (e.g., GDPR, HIPAA)  
-2. Chosen items appear as blue tags  
-3. Scroll to **Custom Entities** to select from a dropdown  
-4. Tags can be removed using the “X”  
-
-![Placeholder for custom entity config screenshot]
-
-#### Configuring the Behaviour
-
-1. Go to **Choose Behaviour**  
-2. Select either **Monitor Only** or **Monitor & Override** from the dropdown  
-
-![Placeholder for behaviour config screenshot]
-
-#### Saving and Applying the Policy
-
-1. Click **Save** to keep changes in the interface  
-2. Click **Apply** to enforce settings on the project  
-3. A success message will confirm application  
-
-![Placeholder for apply success screenshot]
+- **Response-Only Monitoring**: Targets hallucinations in AI outputs.
+- **Flexible Enforcement Controls**: Choose to monitor or block fabricated content.
+- **Accuracy Safeguards**: Helps protect organisational trust, reliability, and compliance.
+- **Streamlined Configuration**: Minimal setup for maximum impact in high-risk environments.
 
 ---
 
-Stay tuned as more policies (e.g., Bias and Fairness, Toxic Content) are added to this overview. Let us know if you'd like to prioritise documentation for a specific upcoming policy.
+## Why Use This Policy?
+
+### Benefits
+
+- Reduces the spread of false or misleading information.
+- Enhances user trust and confidence in AI-generated responses.
+- Supports compliance in regulated industries.
+- Provides oversight and transparency through detailed logging.
+
+---
+
+## Use Case: Compliance Support in Financial Services
+
+### Scenario
+
+A global financial institution uses an LLM to help employees interpret regulations, summarise guidelines, and generate internal policy content. Given the high risk of misinformation, accuracy is non-negotiable.
+
+### Challenge
+
+The organisation must:
+
+- Detect and block LLM responses that present fabricated or unverifiable content.
+- Maintain strict quality assurance and regulatory compliance.
+- Log all hallucination incidents for continuous improvement and auditing.
+
+### Solution: Implementing the Hallucinations Policy
+
+1. **Response Filtering**  
+   - Enabled to monitor and control all LLM-generated outputs.
+
+2. **Enforcement Mode**  
+   - Configured to **Log and Override** to prevent the delivery of hallucinated content.
+
+---
+
+## How to Use the Policy
+
+> **Note:** This section will be updated with detailed UI setup guidance.
+
+### Enabling the Policy
+
+*Placeholder for enabling steps.*
+
+### Setting Enforcement Mode
+
+*Placeholder for selecting Log Only or Log and Override.*
+
+### Saving and Applying the Policy
+
+*Placeholder for finalising and activating policy settings.*
+
+---
+
+With the **Hallucinations Policy**, AltrumAI enables organisations to confidently deliver accurate, verifiable, and responsible AI-generated content—minimising risk and maximising trust.
