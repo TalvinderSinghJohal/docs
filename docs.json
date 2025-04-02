@@ -34,6 +34,7 @@
             "group": "Policy Overview",
             "pages": [
               "policies/data-privacy",
+              "policies/data-privacy-custom",
               "policies/toxicitiy",
               "policies/bias&fairness",
               "policies/competitor-mention",
