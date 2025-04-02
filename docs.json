@@ -92,8 +92,8 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:support@altrum.ai"
+        "label": "Contact us",
+        "href": "https://www.altrum.ai/contact-us"
       }
     ],
     "primary": {
