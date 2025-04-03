@@ -72,16 +72,6 @@
     ],
     "global": {
       "anchors": [
-        {
-          "anchor": "Website",
-          "href": "https://www.altrum.ai",
-          "icon": "globe-pointer"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://www.altrum.ai/blog",
-          "icon": "newspaper"
-        }
       ]
     }
   },
