@@ -95,7 +95,8 @@
   "footer": {
     "socials": {
       "github": "https://github.com/altrumai",
-      "linkedin": "https://www.linkedin.com/company/altrum-ai"
+      "linkedin": "https://www.linkedin.com/company/altrum-ai",
+      "website": "https://www.altrum.ai"
     }
   }
 }
