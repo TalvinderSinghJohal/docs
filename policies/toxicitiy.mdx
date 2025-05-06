@@ -8,30 +8,6 @@ description: "Detailed overview of each AltrumAI policy including purpose, featu
 The **Toxicity Policy** allows organisations to identify and manage toxic language in both user inputs and AI-generated responses. Designed to promote respectful, inclusive, and professional AI interactions, this policy helps ensure that toxic, abusive, or offensive content is either flagged or blocked before it reaches end users or internal systems.
 Unlike other policies that offer content-specific controls, the Toxicity Policy focuses purely on detecting general language toxicity. It offers a simple yet powerful configuration model that allows teams to monitor and prevent harmful communication patterns in real time.
 
-<CardGroup cols={2}>
-  <Card
-    title="Data Privacy"
-    icon="lock"
-    href="#data-privacy-policy"
-  >
-    Prevents the transmission or exposure of sensitive data in prompts and responses.
-  </Card>
-  <Card
-    title="Bias & Fairness"
-    icon="balance-scale"
-    href="#bias-and-fairness-policy"
-  >
-    (Coming Soon) Ensure equitable AI behavior across demographics.
-  </Card>
-  <Card
-    title="Toxic Content"
-    icon="radiation"
-    href="#toxic-content-policy"
-  >
-    (Coming Soon) Blocks harmful, offensive, or inappropriate outputs.
-  </Card>
-</CardGroup>
-
 ---
 
 ## What the Policy Does
@@ -87,7 +63,7 @@ A configurable detection threshold (between **0.2 and 0.9**) allows organisation
 
 ### Scenario
 
-An international company deploys an AI assistant to support HR-related queries and internal communications. It’s critical that the chatbot maintains a professional tone and does not return or respond to toxic, discriminatory, or offensive language.
+An international company deploys an AI assistant to support HR-related queries and internal communications. It's critical that the chatbot maintains a professional tone and does not return or respond to toxic, discriminatory, or offensive language.
 
 ### Challenge
 
@@ -112,20 +88,59 @@ The organisation must ensure that:
 
 ## How to Use the Policy
 
-> **Note:** This section will be finalised with full UI-based configuration instructions.
+> **Note:** The following steps walk you through configuring the Toxicity Detection Policy in the policy workflow.
 
-### Enabling the Policy
+### Step 1: Navigate to the Policy Workflow
 
-*Placeholder for enabling steps.*
+1. From the **Dashboard**, select your project to open the **Project Overview**.
+2. In the **Policy** section, click **Edit Policy** to enter the policy configuration workflow.
 
-### Configuring Behaviour & Threshold
+### Step 2: Select and Enable the Toxicity Detection Policy
 
-*Placeholder for choosing Log Only or Log and Override, and adjusting sensitivity.*
+1. In the **Configure Policies** tab, click **Toxicity** from the list of policies.
+2. The configuration panel will appear on the right.
+3. Toggle **Enable Policy** to **ON**.
 
-### Saving and Applying the Policy
+### Step 3: Set Application Scope
 
-*Placeholder for finalising and activating the policy settings.*
+1. Under **Apply Policy To**, choose one of the following:
+   - **Prompt** – Monitor user inputs only.
+   - **Response** – Monitor AI outputs only.
+   - **Both** – Monitor both inputs and outputs.
+
+### Step 4: Configure Enforcement Behaviour
+
+1. Under **Behaviour**, select:
+   - **Log Only** – Record instances of toxic content without blocking.
+   - **Log and Override** – Block toxic prompts/responses and replace with a smart fallback message.
+
+### Step 5: Adjust Detection Threshold
+
+1. Use the **Threshold Slider** to set detection sensitivity:
+   - Lower thresholds (e.g., `0.2`) catch broader cases, reducing false negatives.
+   - Higher thresholds (e.g., `0.9`) enforce stricter toxicity detection.
+
+### Step 6: Save, Test, and Apply
+
+1. Click **Save Changes** to store your configuration.
+2. *(Optional)* Test your policy under the **Test Policies** tab.
+3. Return to **Configure Policies** and click **Apply Policies** to activate it.
+4. A success message will confirm that the policy is live.
+
+The **Toxicity Detection Policy** helps maintain professional and respectful AI interactions by detecting and managing harmful language with configurable precision.
 
 ---
 
-By using the **Toxicity Policy**, AltrumAI empowers organisations to create respectful and compliant digital experiences—ensuring that AI conversations remain constructive, appropriate, and aligned with company values.
+## Types of Toxicity Detection
+
+The Toxicity Policy is designed to identify and manage various forms of inappropriate content. Below is an overview of the primary categories our system monitors:
+
+| Category | Description |
+|----------|-------------|
+| General Toxicity | Detects overall harmful or negative language patterns, including severe forms of toxicity that could impact workplace culture and professional communication. |
+| Insults & Identity-Based Attacks | Identifies language that demeans individuals or groups based on personal characteristics, helping maintain respectful and inclusive communication standards. |
+| Sexual Content | Monitors for explicit sexual language or references that are inappropriate for professional environments. |
+| Obscenity | Detects vulgar or offensive language that could create a hostile work environment or damage professional relationships. |
+| Threats | Identifies language that suggests harm, intimidation, or coercion, helping prevent potential workplace harassment or security concerns. |
+
+Each category is monitored with configurable sensitivity, allowing organizations to align the policy with their specific communication standards and workplace culture requirements.

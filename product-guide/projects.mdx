@@ -1,69 +1,134 @@
 ---
-title: Project Creation
+title: Project
 description: "Learn how to create, set up, and manage AI projects in AltrumAI"
 icon: "folder-plus"
 ---
 
-## Navigating the Home Page
+## Navigating the Dashboard
 
-Once logged in, you'll be directed to the **Home Page**, the control center of your AltrumAI experience.
+Once logged in, you'll be directed to the **Dashboard**, the control center of your AltrumAI experience.
 
-### The Home Page Includes:
-- **Navigation Panel** – Quick access to Home, User Management, Reporting, Logout
-- **Summary Statistics** – See key stats on projects, requests, and violations
-- **Project List** – Table view of all projects with management tools
+### The Dashboard Includes:
+- **Navigation Panel** – Quick access to Dashboard, Administration, Reporting, Observability, Support, and Documentation.
+- **Summary Statistics** – Key metrics, charts, and graphs on projects, requests, and policy violations.
+- **Project List** – A searchable and filterable table view of all projects with actionable controls.
 
-![Placeholder for home page screenshot]
+<img height="200" src="/images/Main Dashboard.png" />
 
-## Creating a New Project
+---
 
-1. On the Home Page, click **Create New Project**
-2. Enter the **project name** and an optional **description**
-3. Click **Create Project**
+## Creating and Configuring a New Project
 
-![Placeholder for create project screenshot]
+### Step 1: Launch the Project Creation Flow
 
-## Project Setup
+1. Click the **Create Project** button in the left-hand navigation panel  
+   _or_ click the small blue **+ icon** in the bottom-right corner of the screen.
+2. You will be redirected to the **Create Project** page.
 
-1. Select a project from the **Project List**
-2. A new tab will open to the **Project Details** screen
+<img height="200" src="/images/Create Project with Arrow.png" />
 
-![Placeholder for project setup tab screenshot]
+---
+
+### Step 2: Enter Project Details
+
+1. Fill in the required fields:
+   - **Project Name** (required)
+   - **Project Description** (required)
+   - **Project Owner** (required)
+   - **LLM Service Providers** (select one or more)
+2. Optionally, add:
+   - **Project Tags**
+3. Click **Create & Continue**.
+
+<img height="200" src="/images/Project Creation.png" />
+---
+
+### Step 3: Configure the Project
+
+Upon creation, you'll be redirected to the **Project Setup** environment. This contains three tabs:
+
+#### 3.1 Configure Policies
+
+1. Navigate to the **Configure Policies** tab.
+2. From the list of available policies, click to select a policy.
+3. Use the panel on the right to:
+   - Enable or disable the policy
+   - Set enforcement mode (e.g., **Log Only** or **Log and Override**)
+   - Adjust thresholds or select relevant criteria (topics, entities, regulations)
+
+<img height="200" src="/images/Policy Config.png" />
+
+> **Note:**  
+> For more detail on individual policies, refer to the [Policy Configuration Guide](/product-guide/policies).
+
+#### 3.2 Configure Response
+
+1. Set response parameters to guide the LLM’s behavior.
+2. These configurations determine tone, scope, or fallback responses depending on your use case.
+
+<img height="200" src="/images/Response Config.png" />
+
+#### 3.3 Test Policies
+
+1. Use the built-in sandbox environment to:
+   - Interact with a test chatbot
+   - Validate how policies behave in real time
+   - Review flagged prompts and responses
+2. Once satisfied, click **Continue to Integration** to proceed.
+
+<img height="200" src="/images/Test Policies.png" />
+
+---
+
+### Step 4: Configure Integration
+
+1. Select an **Integration Type** from the available options.
+2. Once selected, your **API Key** will be displayed.
+3. Click **Continue to Summary**.
+
+<img height="200" src="/images/Integration set up.png" />
+
+---
+
+### Step 5: Review and Publish
+
+1. Review your project’s setup on the **Summary Page**.
+2. Use the edit icons to make changes to any step if needed.
+3. Once confirmed, click **Publish Project**.
+4. A confirmation message will appear: _“Project successfully published”_.
+5. Click **View Project** to open the **Project Dashboard**.
+
+<img height="200" src="/images/Project Summary.png" />
+
+---
+
+## Project Dashboard
+
+Once a project is published, the **Project Dashboard** becomes the central view for all configuration, activity, and policy enforcement related to that project.
+
+Key sections include:
+- **Project Details**
+- **Connection Status**
+- **Policy Summary**
+- **Integration Details**
+- **Usage and Violation Metrics**
+
+<img height="200" src="/images/Project Dashboard.png" />
+
+---
 
 ## Editing Project Details
 
-1. Click the **Edit Project** button
-2. Update the **Project Name** or **Description**
-3. Click **Save Project** or **Cancel** to discard changes
+### To Edit an Existing Project:
 
-![Placeholder for editing project details screenshot]
+1. Navigate to the **Dashboard**.
+2. In the **Project Table**, find your project and click the **ellipsis (⋮)** in the **Actions** column.
+3. Select **View Project**.
+4. On the **Project Dashboard**, locate the **Project Details** quadrant.
+5. Click **Edit** to return to **Step 1** of the setup process.
+6. Modify the necessary fields and click **Save Changes**.
 
-## Checking Connection Status
-
-1. In the Project Details view, locate the **Last Connected** box
-2. If setup is incomplete, it will show **Not Connected** in red
-3. Click **Refresh** to update the status
-
-![Placeholder for connection status screenshot]
-
-## Reviewing Project Stats
-
-View these metrics at the bottom of the **Project Details** screen:
-- Total Policy Violations Detected
-- Number of Prompts Processed
-- Number of Responses Generated
-- Number of Policy Violations Logged
-
-![Placeholder for project stats screenshot]
-
-## Setting Up a Project for Integration
-
-1. Click the **Project Setup** button
-2. Follow the **4-step integration process** in the guide shown
-3. Complete each step to connect AltrumAI with your AI application
-4. Click **Exit** to return to the Project Details screen
-
-![Placeholder for project integration steps screenshot]
+---
 
 ## Next Steps
 
@@ -71,14 +136,14 @@ View these metrics at the bottom of the **Project Details** screen:
   <Card
     title="Configure Policies"
     icon="shield"
-    href="/product-guide/configuring-policies-and-settings"
+    href="/product-guide/policies"
   >
     Enforce ethical AI usage and compliance policies.
   </Card>
   <Card
-    title="Track AI Activity"
+    title="Analyse reports"
     icon="chart-line"
-    href="/product-guide/generating-and-viewing-reports"
+    href="/product-guide/reporting"
   >
     Access real-time reports and dashboards.
   </Card>

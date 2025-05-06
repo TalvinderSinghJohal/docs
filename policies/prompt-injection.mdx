@@ -8,30 +8,6 @@ description: "Detailed overview of each AltrumAI policy including purpose, featu
 The **Prompt Injection Policy** is designed to detect and manage attempts to manipulate or override system instructions through user prompts. Prompt injections can pose a serious risk to AI integrity, enabling users to bypass restrictions, alter model behavior, or access unintended functionality.
 This policy applies exclusively to **user inputs (prompts)** and offers a straightforward way to monitor or block such attempts using a configurable enforcement mode. With this policy, organisations can safeguard their AI workflows from malicious manipulation while maintaining trusted and compliant interactions.
 
-<CardGroup cols={2}>
-  <Card
-    title="Data Privacy"
-    icon="lock"
-    href="#data-privacy-policy"
-  >
-    Prevents the transmission or exposure of sensitive data in prompts and responses.
-  </Card>
-  <Card
-    title="Bias & Fairness"
-    icon="balance-scale"
-    href="#bias-and-fairness-policy"
-  >
-    (Coming Soon) Ensure equitable AI behavior across demographics.
-  </Card>
-  <Card
-    title="Toxic Content"
-    icon="radiation"
-    href="#toxic-content-policy"
-  >
-    (Coming Soon) Blocks harmful, offensive, or inappropriate outputs.
-  </Card>
-</CardGroup>
-
 ---
 
 ## What the Policy Does
@@ -103,20 +79,51 @@ The firm needs to:
 
 ## How to Use the Policy
 
-> **Note:** Detailed UI setup guidance will be provided here.
+> **Note:** The following steps explain how to configure the Prompt Injection Policy within the policy workflow. This policy applies **only to user-submitted prompts** and cannot be applied to responses.
 
-### Enabling the Policy
+### Step 1: Navigate to the Policy Workflow
 
-*Placeholder for enabling steps.*
-
-### Setting Enforcement Mode
-
-*Placeholder for selecting Log Only or Log and Override.*
-
-### Saving and Applying the Policy
-
-*Placeholder for finalising and activating policy settings.*
+1. From the **Dashboard**, open your project by selecting it from the **Project Table**.
+2. In the **Policy** section, click **Edit Policy** to open the policy configuration workflow.
 
 ---
 
-The **Prompt Injection Policy** is a critical safeguard in AltrumAI, offering protection against manipulation and misuse—ensuring that your AI systems remain consistent, reliable, and secure.
+### Step 2: Select and Enable the Prompt Injection Policy
+
+1. In the **Configure Policies** tab, click on **Prompt Injection** from the list of available policies.
+2. The configuration panel will display on the right-hand side.
+3. Toggle the **Enable Policy** switch to **ON** to begin configuration.
+
+---
+
+### Step 3: Configure Enforcement Behaviour
+
+1. Under **Behaviour**, select how the system should handle detected prompt injection attempts:
+   - **Log Only** – Log the violation without blocking the prompt.
+   - **Log and Override** – Block the prompt and return a smart fallback message, preventing manipulation of the system.
+
+---
+
+### Step 4: Save, Test, and Apply the Policy
+
+1. Click **Save Changes** to store your configuration.
+2. *(Optional)* Use the **Test Policies** tab to simulate injection attempts and validate policy behaviour.
+3. Return to the **Configure Policies** tab and click **Apply Policies** to activate the policy.
+4. A success message will confirm your settings have been successfully applied.
+
+---
+
+The **Prompt Injection Policy** helps protect your AI systems from manipulation and instruction overrides by identifying and blocking prompt-based attempts to interfere with system behaviour.
+
+---
+
+## Types of Prompt Injection Detection
+
+The Prompt Injection Policy is designed to identify and manage various forms of prompt manipulation attempts. Below is an overview of the primary categories our system monitors:
+
+| Category | Description | Business Impact |
+|----------|-------------|-----------------|
+| Content Injection | Detects attempts to embed unauthorized instructions or commands within user inputs, such as requests to prioritise specific products or services in responses. | Helps maintain the integrity of AI interactions and prevents unauthorized influence on business recommendations or decisions. |
+| System Override | Identifies attempts to bypass or override established system guidelines and safety measures, ensuring user inputs remain aligned with organisational policies and values. | Protects against potential misuse that could lead to reputational damage or compliance violations. |
+
+Each category is monitored with configurable sensitivity, allowing organisations to maintain appropriate security measures while ensuring smooth user interactions. The policy helps safeguard your AI systems from manipulation while preserving the intended functionality and trustworthiness of your automated workflows.

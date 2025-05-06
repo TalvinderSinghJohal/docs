@@ -7,7 +7,7 @@
     "light": "#126FFF",
     "dark": "#126FFF"
   },
-  "favicon": "/altrum_logo.svg",
+  "favicon": "images/Altrum AI Favicon 128x128.png",
   "navigation": {
     "tabs": [
       {
@@ -16,14 +16,12 @@
           {
             "group": "Get Started",
             "pages": [
-              "get-started/introduction",
-              "get-started/quickstart"
+              "get-started/introduction"
             ]
           },
           {
             "group": "Product Guide",
             "pages": [
-              "product-guide/user-onboarding",
               "product-guide/projects",
               "product-guide/reporting",
               "product-guide/permissions",

@@ -7,30 +7,6 @@ description: "Detailed overview of each AltrumAI policy including purpose, featu
 
 The **Restrict to Topic Policy** empowers organisations to control the types of topics that can be discussed during interactions with a Language Model (LLM). By defining a set of **Valid Topics** (permitted content) and **Invalid Topics** (restricted content), organisations can align AI usage with business objectives, regulatory standards, and ethical practices. This policy helps ensure that AI-generated conversations stay relevant, secure, and compliant.
 
-<CardGroup cols={2}>
-  <Card
-    title="Data Privacy"
-    icon="lock"
-    href="#data-privacy-policy"
-  >
-    Prevents the transmission or exposure of sensitive data in prompts and responses.
-  </Card>
-  <Card
-    title="Bias & Fairness"
-    icon="balance-scale"
-    href="#bias-and-fairness-policy"
-  >
-    (Coming Soon) Ensure equitable AI behavior across demographics.
-  </Card>
-  <Card
-    title="Toxic Content"
-    icon="radiation"
-    href="#toxic-content-policy"
-  >
-    (Coming Soon) Blocks harmful, offensive, or inappropriate outputs.
-  </Card>
-</CardGroup>
-
 ---
 
 ## What the Policy Does
@@ -121,24 +97,66 @@ Employees might unintentionally prompt the AI to mention competitor names or gen
 
 ## How to Use the Policy
 
-> **Note**: This section will be refined with full step-by-step UI guidance.
+> **Note:** The steps below guide you through configuring the Topic Restriction Policy using the policy workflow interface.
 
-### Enabling the Policy
+### Step 1: Navigate to the Policy Workflow
 
-*Placeholder for enabling steps.*
-
-### Configuring Topics
-
-*Placeholder for topic configuration steps, including how to add Valid and Invalid Topics.*
-
-### Setting Behaviour & Threshold
-
-*Placeholder for choosing enforcement mode and adjusting detection sensitivity.*
-
-### Saving and Applying the Policy
-
-*Placeholder for UI walkthrough to save and apply policy settings.*
+1. From the **Dashboard**, open the **Project Overview** by selecting your project from the **Project Table**.
+2. In the **Policy** section of the Project Overview, click **Edit Policy** to launch the policy configuration workflow.
 
 ---
 
-With the **Restrict to Topic Policy**, AltrumAI helps organisations maintain trusted, purposeful, and policy-aligned AI interactions—offering the oversight needed to support ethical AI use in business environments.
+### Step 2: Select and Enable the Topic Restriction Policy
+
+1. In the **Configure Policies** tab, a list of available policies will be displayed.
+2. Click on **Topic Restriction** to open its configuration options on the right-hand side of the screen.
+3. Toggle the **Enable Policy** switch to **ON** to begin configuration.
+
+---
+
+### Step 3: Define Valid and/or Invalid Topics
+
+1. Under the **Topic Configuration** section, you’ll find two input fields:
+   - **Valid Topics** – Enter allowed topics here. Press `Enter` after each topic to add it. These will appear as tags below the input field.
+   - **Invalid Topics** – Enter restricted topics here. Press `Enter` after each entry. These will also display as tags.
+2. You may configure **only Valid**, **only Invalid**, or **both**, depending on your organisation's requirements.
+3. Topics can be removed by clicking the “X” on any tag.
+
+---
+
+### Step 4: Set Application Scope
+
+1. Under **Apply Policy To**, choose where the policy will be enforced:
+   - **Prompt** – User input only
+   - **Response** – AI-generated output only
+   - **Both** – Enforce on both directions
+
+---
+
+### Step 5: Configure Enforcement Behaviour
+
+1. Under **Behaviour**, choose how the system should respond to restricted topics:
+   - **Log Only** – Flag violations without blocking the interaction.
+   - **Log and Override** – Block the prompt or response and return a smart message based on your response configuration.
+
+---
+
+### Step 6: Adjust Detection Threshold
+
+1. Use the **Threshold Slider** to set how strictly topics should be matched:
+   - Lower values (e.g., `0.2`) allow broader interpretation and fewer false positives.
+   - Higher values (e.g., `0.9`) enforce stricter topic detection and filtering.
+2. The selected threshold level will be displayed numerically alongside the slider.
+
+---
+
+### Step 7: Save, Test, and Apply the Policy
+
+1. Click **Save Changes** to store your configuration settings.
+2. *(Optional)* Navigate to the **Test Policies** tab to simulate prompts and validate policy enforcement live.
+3. Return to the **Configure Policies** tab and click **Apply Policies** to activate the configuration.
+4. A success message will confirm the policy has been applied to your project.
+
+---
+
+The **Topic Restriction Policy** provides full control over allowable and prohibited discussion topics—ensuring your AI interactions remain relevant, compliant, and aligned with your organisation's standards.

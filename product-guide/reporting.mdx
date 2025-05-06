@@ -1,44 +1,73 @@
 ---
 title: Reporting
-description: "Understand how to access, filter, and analyze AI performance and policy violation data"
+description: "Understand how to access, filter, and analyse AI performance and policy violation data"
 icon: "square-poll-vertical"
 ---
 
 ## Overview
 
-The **Reporting** feature gives you real-time visibility into how your AI applications are performing and how well they are adhering to configured policies.
+The **Reporting** module provides real-time insights into the performance of your AI applications and the effectiveness of policy enforcement across your organisation and projects.
 
-## Accessing Reports
+Reporting enables you to track key usage statistics, monitor policy adherence, and identify trends over time empowering better governance and continuous improvement.
 
-1. Navigate to the **Reporting** tab in the navigation panel
-2. The dashboard will display default metrics for your active projects
+---
 
-![Placeholder for reporting tab screenshot]
+## Accessing the Reporting Dashboard
 
-## Filtering Report Data
+1. From the **Navigation Panel**, click on the **Reporting** tab.
+2. You will be directed to the **Reporting Page**, where you can access organisational and project level insights.
 
-1. Choose a **time range** (e.g., Last 7 Days, Last 30 Days)
-2. Apply **filters** such as project name, violation type, or user
-3. The dashboard will automatically update based on your selections
+---
 
-![Placeholder for filtering dashboard screenshot]
+## Navigating the Reporting Page
 
-## Available Metrics
+The Reporting Page includes two tabs:
 
-- **AI Model Usage** – Volume of prompts processed and responses generated
-- **Policy Violations** – Counts and categories of ethical policy breaches
-- **Violation Trends** – Time-series view of how violations are changing over time
+### 1. Organisation-Level Data
 
-![Placeholder for metrics dashboard screenshot]
+- View aggregated data across all projects within the organisation.
+- Metrics include:
+  - Overall usage statistics
+  - Aggregate policy violation counts
+  - Organisation wide trends over time
 
-## Exporting Reports (Coming Soon)
+**Time Filter Options**:
+- **Last 7 Days**
+- **Last 30 Days**
+- **Last 90 Days**
+- **Year to Date**
 
-Exporting dashboard data to CSV or PDF formats will be available in an upcoming release.
+Selecting a timeframe will automatically update the statistics and visualisations.
+
+<img height="200" src="/images/Org Reporting.png" />
+
+---
+
+### 2. Project-Level Data
+
+- View detailed metrics for individual projects.
+- This tab offers an additional **Project Filter** to allow users to isolate reporting data for a specific project within the organisation.
+
+**Time and Project Filter Options**:
+- **Time Filters**: Last 7 Days, Last 30 Days, Last 90 Days, Year to Date
+- **Project Filter**: Select from a list of active projects
+
+Using both filters together allows users to:
+- Compare project specific performance
+- Identify where compliance efforts may need reinforcement
+- Spot trends unique to individual projects
+
+<img height="200" src="/images/Project Reporting.png" />
+
+---
 
 ## Best Practices
 
-- Review dashboards weekly to stay informed about compliance
-- Use filters to investigate spikes or anomalies in violation activity
+- **Weekly Reviews**: Monitor the Reporting Dashboard weekly to ensure continuous compliance and spot early trends.
+- **Use Filters Strategically**: Narrow down by project and timeframe when investigating spikes in violation activity.
+- **Compare Organisation vs. Project**: Use both tabs to understand overall health versus project specific deviations.
+
+---
 
 ## Next Steps
 
@@ -46,14 +75,14 @@ Exporting dashboard data to CSV or PDF formats will be available in an upcoming 
   <Card
     title="Manage Users"
     icon="users"
-    href="/product-guide/managing-users-and-permissions"
+    href="/product-guide/permissions.mdx"
   >
     Add new users and manage access rights.
   </Card>
   <Card
     title="Refine Policies"
     icon="sliders"
-    href="/product-guide/configuring-policies-and-settings"
+    href="/product-guide/policies"
   >
     Update and adjust policy settings for better oversight.
   </Card>
