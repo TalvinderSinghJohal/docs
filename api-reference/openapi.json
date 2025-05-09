@@ -36,18 +36,9 @@
            ],
            "parameters":[
               {
-                 "name":"router_name",
-                 "in":"query",
-                 "required":false,
-                 "schema":{
-                    "type":"string",
-                    "title":"Router Name"
-                 }
-              },
-              {
                  "name":"authorization",
                  "in":"header",
-                 "required":false,
+                 "required":true,
                  "schema":{
                     "type":"string",
                     "description":"OpenAI API key in format 'Bearer sk-...'",
@@ -144,18 +135,9 @@
            ],
            "parameters":[
               {
-                 "name":"router_name",
-                 "in":"query",
-                 "required":false,
-                 "schema":{
-                    "type":"string",
-                    "title":"Router Name"
-                 }
-              },
-              {
                  "name":"authorization",
                  "in":"header",
-                 "required":false,
+                 "required":true,
                  "schema":{
                     "type":"string",
                     "description":"Anthropic API key",
@@ -285,18 +267,9 @@
                  "description":"Azure OpenAI API version"
               },
               {
-                 "name":"router_name",
-                 "in":"query",
-                 "required":false,
-                 "schema":{
-                    "type":"string",
-                    "title":"Router Name"
-                 }
-              },
-              {
                  "name":"authorization",
                  "in":"header",
-                 "required":false,
+                 "required":true,
                  "schema":{
                     "type":"string",
                     "description":"Azure OpenAI API key in format 'Bearer {key}'",
@@ -404,18 +377,9 @@
                  "description":"The Azure AI Studio endpoint"
               },
               {
-                 "name":"router_name",
-                 "in":"query",
-                 "required":false,
-                 "schema":{
-                    "type":"string",
-                    "title":"Router Name"
-                 }
-              },
-              {
                  "name":"authorization",
                  "in":"header",
-                 "required":false,
+                 "required":true,
                  "schema":{
                     "type":"string",
                     "description":"Azure AI Studio API key in format 'Bearer {key}'",
@@ -511,15 +475,6 @@
               }
            ],
            "parameters":[
-              {
-                 "name":"router_name",
-                 "in":"query",
-                 "required":false,
-                 "schema":{
-                    "type":"string",
-                    "title":"Router Name"
-                 }
-              },
               {
                  "name":"aws-access-key-id",
                  "in":"header",
@@ -642,18 +597,9 @@
            ],
            "parameters":[
               {
-                 "name":"router_name",
-                 "in":"query",
-                 "required":false,
-                 "schema":{
-                    "type":"string",
-                    "title":"Router Name"
-                 }
-              },
-              {
                  "name":"authorization",
                  "in":"header",
-                 "required":false,
+                 "required":true,
                  "schema":{
                     "type":"string",
                     "description":"Google Gemini API key",
@@ -933,16 +879,6 @@
                  "title":"Stream",
                  "description":"If set, partial message deltas will be sent",
                  "default":false
-              },
-              "stream_options":{
-                 "anyOf":[
-                    {
-                       "$ref":"#/components/schemas/StreamOptions"
-                    },
-                    {
-                       "type":"null"
-                    }
-                 ]
               },
               "timeout":{
                  "anyOf":[
@@ -1269,16 +1205,6 @@
                  "title":"Stream",
                  "description":"If set, partial message deltas will be sent",
                  "default":false
-              },
-              "stream_options":{
-                 "anyOf":[
-                    {
-                       "$ref":"#/components/schemas/StreamOptions"
-                    },
-                    {
-                       "type":"null"
-                    }
-                 ]
               },
               "timeout":{
                  "anyOf":[
@@ -2297,16 +2223,6 @@
                  "description":"If set, partial message deltas will be sent",
                  "default":false
               },
-              "stream_options":{
-                 "anyOf":[
-                    {
-                       "$ref":"#/components/schemas/StreamOptions"
-                    },
-                    {
-                       "type":"null"
-                    }
-                 ]
-              },
               "timeout":{
                  "anyOf":[
                     {
@@ -2704,16 +2620,6 @@
                  "title":"Stream",
                  "description":"If set, partial message deltas will be sent",
                  "default":false
-              },
-              "stream_options":{
-                 "anyOf":[
-                    {
-                       "$ref":"#/components/schemas/StreamOptions"
-                    },
-                    {
-                       "type":"null"
-                    }
-                 ]
               },
               "timeout":{
                  "anyOf":[
@@ -3153,16 +3059,6 @@
                  "title":"Stream",
                  "description":"If set, partial message deltas will be sent",
                  "default":false
-              },
-              "stream_options":{
-                 "anyOf":[
-                    {
-                       "$ref":"#/components/schemas/StreamOptions"
-                    },
-                    {
-                       "type":"null"
-                    }
-                 ]
               },
               "timeout":{
                  "anyOf":[
