@@ -24,7 +24,7 @@
             "pages": [
               "product-guide/projects",
               "product-guide/reporting",
-              "product-guide/permissions",
+              "product-guide/administration",
               "product-guide/policies"
             ]
           },
@@ -40,6 +40,12 @@
               "policies/sensitive-topic",
               "policies/hallucinations",
               "policies/prompt-injection"
+            ]
+          },
+          {
+            "group": "Release Notes",
+            "pages": [
+              "release-notes/june-2025-release"
             ]
           }
         ]
