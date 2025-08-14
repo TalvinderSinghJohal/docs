@@ -1,0 +1,252 @@
+---
+title: Data Protection Filter
+description: "Advanced PII detection and protection that identifies and safeguards personally identifiable information across all AI interactions."
+sidebarTitle: Data Protection Filter
+---
+
+## Overview
+
+The **Data Protection Filter** safeguards personally identifiable information (PII) using advanced AI detection systems. It analyses both user inputs and AI responses in real-time to identify and protect sensitive data like names, addresses, and financial information.
+
+---
+
+## What the Guardrail Does
+
+### Purpose
+
+The primary goal of the Data Protection Filter is to safeguard sensitive personal information by preventing unauthorised exposure of PII during AI interactions while maintaining high accuracy and minimal impact on legitimate business communications. By enabling this guardrail, organisations can ensure compliance with data protection regulations, protect user privacy, maintain trust, and uphold responsible data handling practices across all AI-powered interactions.
+
+### Scope
+
+#### Comprehensive PII Detection
+
+The Data Protection Filter applies advanced content analysis to:
+
+- **Input** – Applies the selected behaviour to what users send to the model.
+- **Output** – Applies the selected behaviour to what the model returns as a response.
+- **Both** – Full bidirectional coverage
+
+#### Operational Modes
+
+- **Monitor** – Lets you review input or output content without taking any action—used for observation and diagnostics.
+- **Block** – Automatically stops content from being processed if it violates the selected guardrail rules.
+
+#### Detection Categories
+
+The guardrail monitors multiple categories of PII:
+
+- **General**: Personal identification, contact information, and basic identifiers
+- **Finance**: Financial account numbers, credit cards, and banking information
+- **Technology**: Digital identifiers, network addresses, and technical credentials
+- **USA Specific**: United States government and financial identifiers
+- **Canada Specific**: Canadian government and healthcare identifiers
+- **UK Specific**: United Kingdom government and healthcare identifiers
+
+### Key Features
+
+<Columns cols={2}>
+  <Card title="Multi-Category Detection">
+    Comprehensive coverage across all major PII types including personal, financial, and government identifiers.
+  </Card>
+  <Card title="Context-Aware Analysis">
+    Advanced understanding of conversation context and data patterns for accurate PII detection.
+  </Card>
+  <Card title="Configurable Sensitivity">
+    Adjustable detection thresholds for different use cases with Low, Medium, and High options.
+  </Card>
+  <Card title="Low Latency">
+    High-performance detection that doesn't impact response times or user experience.
+  </Card>
+  <Card title="Enterprise-Grade Accuracy">
+    Minimises false positives while maintaining high detection rates across all data types.
+  </Card>
+  <Card title="Regulatory Compliance">
+    Aligns with GDPR, HIPAA, and other data protection frameworks for compliance assurance.
+  </Card>
+</Columns>
+
+---
+
+## Why Use This Guardrail?
+
+### Benefits
+
+- **Regulatory Compliance**: Ensures adherence to data protection laws and industry standards
+- **Privacy Protection**: Safeguards user privacy and prevents unauthorised data exposure
+- **Risk Mitigation**: Reduces legal and reputational risks associated with data breaches
+- **Trust Building**: Maintains user trust through responsible data handling
+- **Audit Trail**: Provides comprehensive logging for compliance and investigation purposes
+
+---
+
+## Use Case: Healthcare AI Assistant
+
+### Scenario
+
+A healthcare organisation deploys an AI assistant to support patient enquiries and administrative tasks. The assistant must handle sensitive patient information while ensuring strict compliance with HIPAA regulations and maintaining patient privacy at all times.
+
+### Challenge
+
+The organisation must ensure that:
+
+- Patient PII is never exposed in AI responses
+- User inputs containing sensitive data are properly handled
+- All interactions comply with healthcare privacy regulations
+- Detection works accurately across various data formats and contexts
+
+### Solution: Implementing Data Protection Filter
+
+1. **Comprehensive Entity Selection**  
+   - Selected **General** entities: Full Name, Phone Number, Email Address, Residential Address, Age
+   - Selected **UK Specific** entities: U.K. NHS Number for patient identification
+   - Applied to both **Input** and **Output** for full bidirectional protection
+
+2. **Appropriate Enforcement**  
+   - Set to **Block** behaviour to actively prevent PII exposure
+   - Provides clear, professional fallback responses when sensitive data is detected
+
+3. **Optimised Configuration**  
+   - Used **Medium** sensitivity threshold for balanced accuracy
+   - Maintains detection effectiveness across diverse data types and formats
+
+---
+
+## How to Use the Guardrail
+
+> **Note:** The steps below guide you through configuring the Data Protection Filter using the Guardrail Setup.
+
+### Step 1: Navigate to the Guardrail Setup
+
+1. From the **Home Page**, open the **AI System Dashboard** by selecting **View** to open your AI system from the **AI System Table**.
+2. In the **guardrails** section of the AI System Overview, click **Edit Guardrails** to launch the guardrail configuration workflow.
+
+---
+
+### Step 2: Select and Enable the Data Protection Filter
+
+1. In the **Configure Guardrails** page, a list of available guardrails will be displayed.
+2. Click on **Data Protection** to open its configuration options on the right-hand side of the screen.
+3. Toggle the **Enable Policy** switch to **ON** to begin configuration.
+
+---
+
+### Step 3: Select Entities
+
+1. Within the guardrail configuration, you'll see a set of expandable groups. Click on any group to reveal its entities:
+   - **General**
+   - **Finance**
+   - **Technology**
+   - **UK Specific**
+   - **USA Specific**
+   - **Canada Specific**
+2. Within each expanded category, check the boxes for the specific entities you want to configure (e.g., Email Address, Name, IP Address).
+3. As entities are selected, they will appear as **tags** under the **Selected Entities** section for easy review and removal.
+
+---
+
+### Step 4: Set Application Scope
+
+1. Under the **Apply Guardrail To** section, select where you want the guardrail enforced:
+   - **Input** – Applies the selected behaviour to what users send to the model.
+   - **Output** – Applies the selected behaviour to what the model returns as a response.
+   - **Both** – Full bidirectional coverage
+
+---
+
+### Step 5: Configure Enforcement Behaviour
+
+1. Under **Select Guardrail Behaviour**, choose how the system should respond to detected PII:
+   - **Monitor** – Lets you review input or output content without taking any action—used for observation and diagnostics.
+   - **Block** – Automatically stops content from being processed if it violates the selected guardrail rules.
+
+---
+
+### Step 6: Save, Test, and Apply the Guardrail
+
+1. Click **Save & Continue** to store your selected entities and configuration.
+2. Go to the **Test Guardrails** step to evaluate how the guardrail behaves in real time with a chatbot.
+3. After saving, you can proceed to the **Summary** section to review your configuration, save all changes, and view your AI System overview.
+
+---
+
+The **Data Protection Filter** provides enterprise-grade PII protection with comprehensive detection capabilities, ensuring your AI interactions remain compliant and secure while maintaining the highest standards of data privacy.
+
+## PII Detection Categories
+
+The Data Protection Filter is designed to identify and manage various forms of personally identifiable information. Below is an overview of the supported entity categories and their specific identifiers:
+
+### General
+
+**ADDRESS** - A physical address, such as "42 Oak Avenue, London, UK" or "Apartment 5B, Tower 2, Business District". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighbourhood.
+
+**AGE** - An individual's age, including the quantity and unit of time. For example, in the phrase "She is 25 years old," the system recognises "25 years" as an age.
+
+**NAME** - An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. The system does not apply this entity type to names that are part of organisations or addresses. For example, it recognises the "Smith & Associates Ltd" as an organisation, and it recognises "Victoria Station Road" as an address.
+
+**EMAIL** - An email address, such as john.smith@company.co.uk.
+
+**PHONE** - A phone number. This entity type also includes fax and pager numbers.
+
+**USERNAME** - A user name that identifies an account, such as a login name, screen name, nick name, or handle.
+
+**PASSWORD** - An alphanumeric string that is used as a password, such as "SecurePass2024!".
+
+**DRIVER_ID** - The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorised vehicles on a public road. A driver's license number consists of alphanumeric characters.
+
+**LICENSE_PLATE** - A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country.
+
+**VEHICLE_IDENTIFICATION_NUMBER** - A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the ISO 3779 specification. Each country has specific codes and formats for VINs.
+
+### Finance
+
+**CREDIT_DEBIT_CARD_CVV** - A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
+
+**CREDIT_DEBIT_CARD_EXPIRY** - The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as month/year or MM/YY. The system recognises expiration dates such as 12/25, 12/2025, and Dec 2025.
+
+**CREDIT_DEBIT_CARD_NUMBER** - The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, the system also recognises credit or debit card numbers when only the last four digits are present.
+
+**PIN** - A four-digit personal identification number (PIN) with which you can access your bank account.
+
+**INTERNATIONAL_BANK_ACCOUNT_NUMBER** - An International Bank Account Number has specific formats in each country. For more information, see www.iban.com/structure.
+
+**SWIFT_CODE** - A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers. SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.
+
+### Technology
+
+**IP_ADDRESS** - An IPv4 address, such as 192.168.1.100.
+
+**MAC_ADDRESS** - A media access control (MAC) address is a unique identifier assigned to a network interface controller (NIC).
+
+**URL** - A web address, such as https://www.mycompany.com.
+
+**AWS_ACCESS_KEY** - A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
+
+**AWS_SECRET_KEY** - A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic AWS requests cryptographically.
+
+### USA Specific
+
+**US_BANK_ACCOUNT_NUMBER** - A US bank account number, which is typically 10 to 12 digits long.
+
+**US_BANK_ROUTING_NUMBER** - A US bank account routing number. These are typically nine digits long.
+
+**US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER** - A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contains a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and fourth digits.
+
+**US_PASSPORT_NUMBER** - A US passport number. Passport numbers range from six to nine alphanumeric characters.
+
+**US_SOCIAL_SECURITY_NUMBER** - A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents.
+
+### Canada Specific
+
+**CA_HEALTH_NUMBER** - A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits.
+
+**CA_SOCIAL_INSURANCE_NUMBER** - A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programmes and benefits. The SIN is formatted as three groups of three digits, such as 987-654-321. A SIN can be validated through a simple check-digit process called the Luhn algorithm.
+
+### UK Specific
+
+**UK_NATIONAL_HEALTH_SERVICE_NUMBER** - A UK National Health Service Number is a 10-17 digit number, such as 123 456 7890. The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.
+
+**UK_NATIONAL_INSURANCE_NUMBER** - A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system. The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, fourth, and sixth digits.
+
+**UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER** - A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business.
+
+Each category is monitored with configurable sensitivity, allowing organisations to maintain appropriate data protection measures while ensuring smooth user interactions. The guardrail provides comprehensive coverage across personal, financial, technological, and region-specific identifiers to create a secure AI environment while preserving the intended functionality and trustworthiness of your automated workflows.

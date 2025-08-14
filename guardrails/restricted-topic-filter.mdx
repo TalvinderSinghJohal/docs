@@ -1,0 +1,234 @@
+---
+title: Restricted Topics Filter
+description: "Advanced topic filtering that prevents AI interactions from engaging with specified restricted topics while maintaining conversation quality."
+sidebarTitle: Restricted Topics Filter
+---
+
+## Overview
+
+The **Restricted Topic Filter** uses advanced AI to detect and block conversations about topics you specify, ensuring interactions stay appropriate and aligned with your organisation’s standards. Unlike simple keyword filters, it understands context and topic variations, providing accurate protection with minimal false positives.
+
+---
+
+## What the Guardrail Does
+
+### Purpose
+
+The primary goal of the Restricted Topic Filter is to maintain conversation quality and compliance by preventing AI interactions from engaging with specified restricted topics while maintaining high accuracy and minimal impact on legitimate business communications. By enabling this guardrail, organisations can ensure content appropriateness, maintain brand safety, prevent sensitive discussions, and uphold responsible AI usage across all interactions.
+
+### Scope
+
+#### Comprehensive Topic Detection
+
+The Restricted Topic Filter applies advanced content analysis to:
+
+- **Input** – Applies the selected behaviour to what users send to the model.
+- **Output** – Applies the selected behaviour to what the model returns as a response.
+- **Both** – Full bidirectional coverage
+
+#### Operational Modes
+
+- **Monitor** – Lets you review input or output content without taking any action—used for observation and diagnostics.
+- **Block** – Automatically stops content from being processed if it violates the selected guardrail rules.
+
+#### Set Detection Threshold
+
+Under **Set Guardrail Threshold** select the required detection sensitivity:
+
+- **Low:** Filters only the most clearly restricted topics. Content with low or uncertain risk is allowed.
+- **Medium:** Filters content that's likely or certainly restricted. Lower-confidence content is still allowed.
+- **High:** Applies strict filtering blocking any content that may be restricted, even with low confidence.
+
+### Key Features
+
+<Columns cols={2}>
+  <Card title="Custom Topic Definition">
+    Define any topics that need to be restricted based on organisational needs with flexible configuration options.
+  </Card>
+  <Card title="Context-Aware Analysis">
+    Advanced understanding of conversation context and topic variations for accurate detection.
+  </Card>
+  <Card title="Configurable Sensitivity">
+    Adjustable detection thresholds for different use cases with Low, Medium, and High options.
+  </Card>
+  <Card title="Low Latency">
+    High-performance detection that doesn't impact response times or user experience.
+  </Card>
+  <Card title="Enterprise-Grade Accuracy">
+    Minimises false positives while maintaining high detection rates across all interactions.
+  </Card>
+  <Card title="Intelligent Topic Detection">
+    Evaluates prompts and responses against restricted topics using natural language understanding.
+  </Card>
+</Columns>
+
+---
+
+## Why Use This Guardrail?
+
+### Benefits
+
+- **Content Control**: Prevents AI from engaging with unwanted or inappropriate topics
+- **Brand Safety**: Protects organisational reputation and maintains professional standards
+- **Compliance**: Ensures adherence to content policies and regulatory requirements
+- **Focus Maintenance**: Keeps conversations aligned with business objectives
+- **Risk Mitigation**: Reduces potential legal and reputational risks
+
+---
+
+## Use Case: Customer Service AI Assistant
+
+### Scenario
+
+A global retail company deploys an AI assistant to handle customer inquiries and support requests. The assistant must provide helpful service while avoiding discussions about competitors, sensitive company information, or inappropriate topics that could damage the brand.
+
+### Challenge
+
+The organisation must ensure that:
+
+- The AI never discusses competitors or their products
+- Sensitive company information is never disclosed
+- Inappropriate or controversial topics are avoided
+- All interactions remain professional and brand-safe
+
+### Solution: Implementing Restricted Topic Filter
+
+1. **Custom Topic Configuration**  
+   - Configured to deny specific topics relevant to the organisation
+   - Set to prevent discussions of internal company matters
+   - Enabled to avoid any topics that could damage the brand
+
+2. **Appropriate Enforcement**  
+   - Set to **BLock** to actively prevent restricted topic discussions
+   - Provides clear, professional fallback responses
+
+3. **Optimised Sensitivity**  
+   - Set to **High** for high accuracy with minimal false positives
+   - Maintains detection effectiveness across diverse topic variations
+
+---
+
+## How to Use the Guardrail
+
+> **Note:** The steps below guide you through configuring the Restricted Topic Filter using the Guardrail Workflow.
+
+### Step 1: Navigate to the Guardrail Setup
+
+1. From the **Home Page**, open the **AI System Dashboard** by selecting "view" to open your project from the **AI System Table**.
+2. In the **guardrails** section of the AI System Overview, click **Edit Guardrails** to launch the guardrail configuration workflow.
+
+---
+
+### Step 2: Select and Enable the Restricted Topic Filter
+
+1. In the **Configure Guardrails** page, a list of available guardrails will be displayed.
+2. Click on **Restricted Topic** to open its configuration options on the right-hand side of the screen.
+3. Toggle the **Enable Policy** switch to **ON** to begin configuration.
+
+---
+
+### Step 3: Define Restricteds Topics
+1. Under the **Topic Configuration** section, click the **Add Topic** button to configure restricted topics.
+2. A pop-up window will appear where you can:
+   - Enter the **Topic Name** in the first field
+   - Provide a **Topic Definition** in the second field to describe what this topic encompasses
+   - Click **Add Topic** to save the topic to your configuration
+3. Added topics will appear as a list below the Add Topic button.
+4. Topics can be removed by clicking the "X" option next to each topic in the list.
+---
+
+### Step 4: Set Application Scope
+
+1. Under **Apply Guardrail To**, choose where the policy will be enforced:
+   - **Input** – Applies the selected behaviour to what users send to the model.
+   - **Output** – Applies the selected behaviour to what the model returns as a response.
+   - **Both** – Full bidirectional coverage
+
+---
+
+### Step 5: Configure Enforcement Behaviour
+
+1. Under **Select Guardrail Behaviour**, choose how the system should respond to restricted topics:
+   - **Monitor** – Lets you review input or output content without taking any action—used for observation and diagnostics.
+   - **Block** – Automatically stops content from being processed if it violates the selected guardrail rules.
+
+
+---
+
+### Step 6: Save, Test, and Apply the Guardrail
+
+1. Click **Save & Continue** to store your selected entities and configuration.
+2. Go to the **Test Guardrails** step to evaluate how the guardrail behaves in real time with a chatbot.
+3. After saving, you can proceed to the **Summary** section to review your configuration, save all changes, and view your AI System overview.
+
+---
+
+The **Topic Restriction Policy** provides full control over allowable and prohibited discussion topics—ensuring your AI interactions remain relevant, compliant, and aligned with your organisation's standards.
+
+---
+
+## Best Practices for Topic Definition
+
+### Creating Effective Restricted Topics
+
+When defining restricted topics, follow these best practices for optimal detection accuracy:
+
+**Topic Name Guidelines:**
+- Use clear, concise nouns or phrases (e.g., "Investment Advice", "Cryptocurrency Trading")
+- Avoid descriptive language or instructions in the name
+- Keep names specific and actionable
+
+**Topic Definition Best Practices:**
+- Provide a crisp, precise definition (up to 200 characters)
+- Describe the content and subtopics clearly
+- Focus on what the topic encompasses, not what to block
+
+**Example Topic Definition:**
+```
+Investment advice is inquiries, guidance, or recommendations about the management or allocation of funds or assets with the goal of generating returns or achieving specific financial objectives.
+```
+
+
+**What to Avoid:**
+- Don't include instructions in definitions (e.g., "Block all cryptocurrency content")
+- Don't use negative definitions (e.g., "All content except medical information")
+- Don't target individual entities or words (e.g., "Statements containing competitor name X")
+- Focus on themes and subjects, not specific words or entities
+
+### Industry-Specific Examples
+
+**Financial Services:**
+```
+- Topic: Investment Advice
+- Definition: Guidance about managing funds, assets, or investments for financial returns
+- Sample Phrases: "Should I invest in stocks?", "What's the best retirement strategy?"
+```
+
+**Healthcare:**
+```
+- Topic: Medical Diagnosis
+- Definition: Specific medical conditions, diagnoses, or treatment recommendations
+- Sample Phrases: "What disease do I have?", "Should I take this medication?"
+```
+
+**Legal Services:**
+```
+- Topic: Legal Advice
+- Definition: Specific legal guidance, case analysis, or legal strategy recommendations
+- Sample Phrases: "How should I handle this lawsuit?", "What are my legal rights?"
+```
+
+### Advanced Configuration Tips
+
+**Contextual Understanding:**
+The guardrail evaluates content contextually, not just keyword matching. This means it can detect topic variations and related discussions even when specific terms aren't used.
+
+**Threshold Optimisation:**
+- Start with **Medium** sensitivity and adjust based on testing results
+- **Low** threshold for broad topic coverage with fewer false positives
+- **High** threshold for precise, strict filtering of all potential violations
+
+**Regular Review:**
+- Monitor guardrail performance through the dashboard
+- Review blocked content to identify false positives
+- Update topic definitions based on new use cases or edge cases

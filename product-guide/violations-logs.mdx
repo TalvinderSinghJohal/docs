@@ -1,0 +1,76 @@
+---
+title: Violations Logs
+description: "Monitor, analyse, and gain insights into guardrail violations with detailed logs and audit trails."
+sidebarTitle: Violations Logs
+---
+
+# Violations Logs
+
+Gain full visibility into guardrail violations and compliance events. The Violations Logs provide detailed audit trails of all guardrail violations, helping you monitor compliance, investigate issues, and ensure responsible AI usage.
+
+<img height="200" src="/images/observability/violation-logs.png" />
+
+## Key Features
+
+- **Detailed Violation Records:**  
+  View comprehensive logs of all guardrail violations, including timestamps, violation types, and contextual information.
+
+- **Expandable Records:**  
+  Click the **View** button on any row to open a **slider panel** from the right side of the screen for detailed investigation.
+
+- **Violation Context:**  
+  Access complete context for each violation including input/output data, guardrail violations data, and system metadata.
+
+- **Filtering & Search:**  
+  Filter violations by time, AI System , provider, or source to quickly find relevant information.
+
+
+## Detailed Violation Information
+
+The slider panel displays comprehensive details about each violation:
+
+- **Timestamp of the violation**
+- **Guardrail name and specific violation details**
+- **User or system that triggered the violation**
+- **Input and output data** (if available and permitted)
+- **Request/Response metadata**
+
+<img height="200" src="/images/observability/violation-logs-panel.png" />
+
+This enhancement enables deeper investigation and auditing of individual guardrail violations, helping you understand context and take appropriate action.
+
+## How to Use
+
+1. Navigate to the **Violations Logs** page from the Navigation.
+2. Filter violations by time, Ai System, AI Provider, or source.
+3. Click the **Biew** button on any violation record for detailed information.
+4. Review violation context to understand the root cause.
+
+> **Tip:**  
+> Use Violations Logs to proactively monitor compliance, quickly investigate issues, and demonstrate adherence to organisational or regulatory requirements.
+
+## Best Practices
+
+- **Regular Review**: Check violation logs regularly to identify patterns and trends
+- **Investigation**: Use detailed violation information to understand and address compliance issues
+- **Documentation**: Export logs for audit trails and compliance reporting
+- **Action Planning**: Use violation insights to refine guardrail configurations
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Configure Guardrails"
+    icon="shield-halved"
+    href="/product-guide/guardrail-config"
+  >
+    Update and adjust guardrail settings based on violation insights.
+  </Card>
+  <Card
+    title="AI System Reporting"
+    icon="bar-chart"
+    href="/product-guide/system-reporting"
+  >
+    View comprehensive AI system performance and usage analytics.
+  </Card>
+</CardGroup>

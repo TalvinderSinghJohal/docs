@@ -1,0 +1,397 @@
+---
+title: Unified API
+description: "Access 7 major AI providers and their models through our unified API (OpenAI compatible)"
+sidebarTitle: Unified API
+---
+
+## Overview
+
+The Unified API standardises how your AI applications interact with leading AI models. It exposes a single OpenAI compatible endpoint for accessing 7 major AI providers eliminating vendor lock-in and enabling easy switching between providers. You can use the familiar OpenAI API format, request structure, and response schema regardless of the underlying provider. This approach delivers:
+
+<Columns cols={2}>
+  <Card title="Vendor Independence">
+    Swap providers instantly without code changes. Avoid vendor lock in and maintain flexibility in your AI strategy.
+  </Card>
+  <Card title="Reduced Development Cost">
+    Integrate once and access many models. Minimise engineering effort and lower ongoing maintenance costs.
+  </Card>
+  <Card title="Operational Simplicity">
+    Centralised management and monitoring for all AI providers. Streamline operations and simplify troubleshooting.
+  </Card>
+  <Card title="Strategic Flexibility">
+    Leverage each provider’s unique strengths. Easily adapt to new capabilities and optimise for your use cases.
+  </Card>
+</Columns>
+
+By adopting the Unified API, organisations can focus on building innovative AI applications rather than managing complex integrations, ultimately accelerating their AI transformation journey while maintaining full control over their AI strategy.
+
+### How it Works
+
+<img height="200" src="/images/unified-api-diagram.png" />
+
+## Supported Providers
+
+| Provider | Description |
+|----------|-------------|
+| **OpenAI** | Access OpenAI's GPT models made available by OpenAI API |
+| **Anthropic** | Connect to Anthropic's Claude models available in Anthropic API |
+| **Amazon Bedrock** | Integrate AWS Bedrock models Claude, Llama, Titan etc. available in AWS Bedrock API |
+| **Azure OpenAI** | Access Azure hosted OpenAI models available in Azure OpenAI API |
+| **Azure AI Inference** | Leverage custom Azure AI Inference models available in Azure AI Inference API |
+| **Google AI** | Integrate Google Gemini models available in Google AI API |
+| **Google Vertex AI** | Access custom deployed Vertex AI models available in Google Vertex Model Garden |
+
+
+## Implementation Examples (for Each Provider)
+
+<Note>All examples use the OpenAI SDK with provider specific headers to route requests through the AI Gateway.</Note>
+
+### OpenAI
+
+Access OpenAI's GPT models made available by OpenAI API
+
+<CodeGroup dropdown>
+
+```python openai_example.py
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_OPENAI_API_KEY",
+    base_url="https://gateway.altrum.ai/v1",
+    default_headers={
+        "x-provider-name": "openai",
+        "x-altrumai-key": "YOUR_ALTRUMAI_API_KEY"
+    }
+)
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "user", "content": "What is the capital of France?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```bash openai_curl.sh
+curl -X POST "https://gateway.altrum.ai/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_OPENAI_API_KEY" \
+  -H "x-provider-name: openai" \
+  -H "x-altrumai-key: YOUR_ALTRUMAI_API_KEY" \
+  -d '{
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the capital of France?"
+      }
+    ]
+  }'
+```
+
+</CodeGroup>
+
+### Anthropic
+
+Access Anthropic Claude models made available by Anthropic API
+
+<CodeGroup dropdown>
+
+```python anthropic_example.py
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="",
+    base_url="https://gateway.altrum.ai/v1",
+    default_headers={
+        "x-api-key": "YOUR_ANTHROPIC_API_KEY",
+        "x-provider-name": "anthropic",
+        "x-altrumai-key": "YOUR_ALTRUMAI_API_KEY"
+    }
+)
+
+response = client.chat.completions.create(
+    model="claude-3-opus-20240229",
+    messages=[
+        {"role": "user", "content": "Explain quantum computing in simple terms."}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```bash anthropic_curl.sh
+curl -X POST "https://gateway.altrum.ai/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer " \
+  -H "x-api-key: YOUR_ANTHROPIC_API_KEY" \
+  -H "x-provider-name: anthropic" \
+  -H "x-altrumai-key: YOUR_ALTRUMAI_API_KEY" \
+  -d '{
+    "model": "claude-3-opus-20240229",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explain quantum computing in simple terms."
+      }
+    ]
+  }'
+```
+
+</CodeGroup>
+
+### Amazon Bedrock
+Access Amazon Bedrock models made available by AWS Bedrock API
+
+<CodeGroup dropdown>
+
+```python bedrock_example.py
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="unused-placeholder",  # Not used, credentials via headers
+    base_url="https://gateway.altrum.ai/v1",
+    default_headers={
+        "x-provider-name": "bedrock",
+        "x-bedrock-access-key-id": "YOUR_AWS_ACCESS_KEY_ID",
+        "x-bedrock-secret-access-key": "YOUR_AWS_SECRET_ACCESS_KEY",
+        "x-bedrock-region": "YOUR_AWS_REGION",
+        "x-bedrock-session-token": "YOUR_AWS_SESSION_TOKEN",  # Optional
+        "x-altrumai-key": "YOUR_ALTRUMAI_API_KEY"
+    }
+)
+
+response = client.chat.completions.create(
+    model="anthropic.claude-v2",
+    messages=[
+        {"role": "user", "content": "Give me a list of 5 creative startup ideas in the AI space."}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```bash bedrock_curl.sh
+curl -X POST "https://gateway.altrum.ai/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "x-provider-name: bedrock" \
+  -H "x-bedrock-access-key-id: YOUR_AWS_ACCESS_KEY_ID" \
+  -H "x-bedrock-secret-access-key: YOUR_AWS_SECRET_ACCESS_KEY" \
+  -H "x-bedrock-region: YOUR_AWS_REGION" \
+  -H "x-bedrock-session-token: YOUR_AWS_SESSION_TOKEN" \
+  -H "x-altrumai-key: YOUR_ALTRUMAI_API_KEY" \
+  -d '{
+    "model": "anthropic.claude-v2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Give me a list of 5 creative startup ideas in the AI space."
+      }
+    ]
+  }'
+```
+
+</CodeGroup>
+
+### Azure OpenAI
+Access Azure OpenAI models made available by Azure OpenAI API
+
+<CodeGroup dropdown>
+
+```python azure_openai_example.py
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="unused-placeholder",  # Authentication via headers
+    base_url="https://gateway.altrum.ai/v1",
+    default_headers={
+        "x-provider-name": "azure_openai",
+        "x-azure-api-key": "YOUR_AZURE_API_KEY",
+        "x-azure-resource-name": "YOUR_AZURE_RESOURCE_NAME",
+        "x-azure-deployment-id": "YOUR_AZURE_DEPLOYMENT_ID",
+        "x-azure-api-version": "2024-02-15-preview",
+        "x-altrumai-key": "YOUR_ALTRUMAI_API_KEY"
+    }
+)
+
+response = client.chat.completions.create(
+    model="gpt-35-turbo",
+    messages=[
+        {"role": "user", "content": "What are the advantages of using managed Kubernetes services?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```bash azure_openai_curl.sh
+curl -X POST "https://gateway.altrum.ai/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "x-provider-name: azure_openai" \
+  -H "x-azure-api-key: YOUR_AZURE_API_KEY" \
+  -H "x-azure-resource-name: YOUR_AZURE_RESOURCE_NAME" \
+  -H "x-azure-deployment-id: YOUR_AZURE_DEPLOYMENT_ID" \
+  -H "x-azure-api-version: 2024-02-15-preview" \
+  -H "x-altrumai-key: YOUR_ALTRUMAI_API_KEY" \
+  -d '{
+    "model": "gpt-35-turbo",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What are the advantages of using managed Kubernetes services?"
+      }
+    ]
+  }'
+```
+
+</CodeGroup>
+
+### Azure AI Inference
+Access Azure AI Inference models made available by Azure AI Inference API
+
+<CodeGroup dropdown>
+
+```python azure_ai_inference_example.py
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="unused-placeholder",  # Authentication via headers
+    base_url="https://gateway.altrum.ai/v1",
+    default_headers={
+        "x-provider-name": "azure_ai_inference",
+        "x-altrumai-key": "YOUR_ALTRUMAI_API_KEY",
+        "x-azure-ai-token": "YOUR_AZURE_AI_INFERENCE_API_KEY",
+        "x-azure-ai-endpoint": "YOUR_AZURE_AI_INFERENCE_ENDPOINT"
+    }
+)
+
+response = client.chat.completions.create(
+    model="phi-2",
+    messages=[
+        {"role": "user", "content": "Summarise the main benefits of using serverless architectures."}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```bash azure_ai_inference_curl.sh
+curl -X POST "https://gateway.altrum.ai/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "x-provider-name: azure_ai_inference" \
+  -H "x-altrumai-key: YOUR_ALTRUMAI_API_KEY" \
+  -H "x-azure-ai-token: YOUR_AZURE_AI_INFERENCE_API_KEY" \
+  -H "x-azure-ai-endpoint: YOUR_AZURE_AI_INFERENCE_ENDPOINT" \
+  -d '{
+    "model": "phi-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Summarise the main benefits of using serverless architectures."
+      }
+    ]
+  }'
+```
+
+</CodeGroup>
+
+### Google AI
+Access Google Gemini models made available by Google AI API
+
+<CodeGroup dropdown>
+
+```python google_ai_example.py
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="unused-placeholder",  # Authentication via headers
+    base_url="https://gateway.altrum.ai/v1",
+    default_headers={
+        "x-provider-name": "google",
+        "x-goog-api-key": "YOUR_GOOGLE_API_KEY",
+        "x-altrumai-key": "YOUR_ALTRUMAI_API_KEY"
+    }
+)
+
+response = client.chat.completions.create(
+    model="gemini-1.5-pro",
+    messages=[
+        {"role": "user", "content": "How can AI help improve energy efficiency in smart buildings?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```bash google_ai_curl.sh
+curl -X POST "https://gateway.altrum.ai/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "x-provider-name: google" \
+  -H "x-goog-api-key: YOUR_GOOGLE_API_KEY" \
+  -H "x-altrumai-key: YOUR_ALTRUMAI_API_KEY" \
+  -d '{
+    "model": "gemini-1.5-pro",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How can AI help improve energy efficiency in smart buildings?"
+      }
+    ]
+  }'
+```
+
+</CodeGroup>
+
+### Google Vertex AI
+Access Google Vertex AI models made available by Google Vertex AI API
+
+<CodeGroup dropdown>
+
+```python google_vertex_ai_example.py
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="unused-placeholder",  # Authentication via headers
+    base_url="https://gateway.altrum.ai/v1",
+    default_headers={
+        "x-provider-name": "google_vertex_ai",
+        "x-api-key": "YOUR_GOOGLE_VERTEX_AI_API_KEY",
+        "x-endpoint-base": "YOUR_GOOGLE_VERTEX_AI_ENDPOINT_BASE",
+        "x-project-id": "YOUR_GOOGLE_VERTEX_AI_PROJECT_ID",
+        "x-location": "YOUR_GOOGLE_VERTEX_AI_LOCATION",
+        "x-altrumai-key": "YOUR_ALTRUMAI_API_KEY"
+    }
+)
+
+response = client.chat.completions.create(
+    model="google.models.text-bison",
+    messages=[
+        {"role": "user", "content": "List three practical applications of generative AI in education."}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```bash google_vertex_ai_curl.sh
+curl -X POST "https://gateway.altrum.ai/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "x-provider-name: google_vertex_ai" \
+  -H "x-api-key: YOUR_GOOGLE_VERTEX_AI_API_KEY" \
+  -H "x-endpoint-base: YOUR_GOOGLE_VERTEX_AI_ENDPOINT_BASE" \
+  -H "x-project-id: YOUR_GOOGLE_VERTEX_AI_PROJECT_ID" \
+  -H "x-location: YOUR_GOOGLE_VERTEX_AI_LOCATION" \
+  -H "x-altrumai-key: YOUR_ALTRUMAI_API_KEY" \
+  -d '{
+    "model": "google.models.text-bison",
+    "messages": [
+      {
+        "role": "user",
+        "content": "List three practical applications of generative AI in education."
+      }
+    ]
+  }'
+```
+</CodeGroup>

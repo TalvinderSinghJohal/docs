@@ -1,7 +1,7 @@
 ---
 title: Administration
 description: "Learn how to add, edit, and manage users and their roles within AltrumAI"
-sidebarTitle: Administration
+icon: "users"
 ---
 
 ## Overview
@@ -13,14 +13,14 @@ AltrumAI provides robust administration tools to help Admins control access and 
 ## User Roles Explained
 
 - **Admin**: Full access to platform settings and administration
-- **User**: Limited access, typically given to AI System level control
+- **User**: Limited access, typically assigned to project-specific tasks
 
 ## Accessing Administration
 
 1. Navigate to the **Administration** tab from the Navigation Panel
-2. You will see a list of all current users their roles and status
+2. You will see a list of all current users and their roles
 
-<img height="200" src="/images/administration/administration-navigation.png" />
+<img height="200" src="/images/acess-user-management.png" />
 
 ## Inviting a New User (Admin Only)
 
@@ -28,19 +28,17 @@ AltrumAI provides robust administration tools to help Admins control access and 
 2. Click the **Invite User** button
 3. Enter the user's email address
 4. Select the appropriate **Role** (Admin or User)
-5. Click **Send Invitation** to send the invite
+5. Click **Invite** to send the invitation
 
-<img height="200" src="/images/administration/invite-user.png" />
+<img height="200" src="/images/edit-role.png" />
 
 ## Editing a User Role
 
-1. From the **Administration** screen, locate the user whose role you want to edit.
-2. At the end of the user's row, click the **Edit** option.
-3. A pop-up will appear where you can change the user's role.
+1. From the **Administration** screen, locate the user.
+2. Click on the **ellipse icon** in the **Actions** column for the user whose role you want to edit.
+3. This opens a pop-up where you can edit the user's role.
 4. Select the new role (Admin/User).
 5. Click **Save** to apply the changes.
-
-<img height="200" src="/images/administration/invite-user.png" />
 
 ## Editing Account Details
 
@@ -50,15 +48,17 @@ AltrumAI provides robust administration tools to help Admins control access and 
    > **Note:** Fields such as **Email**, **Role**, and **Organisation** are **not editable**.
 4. Click **Save Changes** to confirm and apply your changes.
 
-<img height="200" src="/images/administration/account-info.png" />
+<img height="200" src="/images/edit-account-details.png" />
 
 ## Disabling a User
 
 1. From the **Administration** screen, locate the user you want to disable.
-2. At the end of the user's row, click the **Disable User** option.
-3. A confirmation pop-up will appear asking if you wish to disable the user.
-4. Click **Disable** to confirm and complete the action.
+2. Click on the **ellipse icon** in the **Actions** column for that user.
+3. From the dropdown menu, select **Disable User**.
+4. A confirmation pop-up will appear asking if you wish to disable the user.
+5. Click **Disable** to confirm and complete the action.
 
+<img height="200" src="/images/disable-user.png" />
 
 ## Best Practices
 
@@ -69,17 +69,17 @@ AltrumAI provides robust administration tools to help Admins control access and 
 
 <CardGroup cols={2}>
   <Card
-    title="Create AI System"
+    title="Create Project"
     icon="folder-plus"
-    href="/product-guide/ai-systems"
+    href="/product-guide/projects"
   >
     Define compliance rules and monitor AI behaviour.
   </Card>
   <Card
-    title="Configure Guardrails"
+    title="Configure Policies"
     icon="shield-check"
-    href="/product-guide/guardrail-config"
+    href="/product-guide/policies"
   >
-    Set up and configure guardrails to enforce AI governance and compliance.
+    Set up and configure policies to enforce AI governance and compliance.
   </Card>
 </CardGroup>

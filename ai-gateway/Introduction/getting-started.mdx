@@ -1,0 +1,229 @@
+---
+title: Getting Started
+description: Get up and running with AltrumAI AI Gateway in minutes.
+---
+
+## Quick Start Guide
+
+This guide will help you integrate your AI application with AltrumAI AI Gateway and verify everything is working correctly. You will be able to verify the gateway integration with a simple chat completion request.
+
+### Prerequisites
+
+Before you begin, make sure you have:
+
+- **AI Gateway enabled** and accessible in your AltrumAI platform account. This will need an AI System to be created and activated in AltrumAI platform.
+- **Your API key** for at least one AI provider/platform (OpenAI, Anthropic, Google, Bedrock, Azure AI etc.) that you are using in your AI application.
+- **Basic knowledge** of REST APIs.
+
+### Step 1: Verify Your Gateway Integration
+
+First, let's make sure your gateway is enabled and accessible:
+
+```bash Gateway Health Check lines icon="bash"
+curl -X GET https://gateway.altrum.ai/
+```
+
+You should receive a response like:
+
+```json Response lines icon="json"
+{
+  "message": "Welcome to the AltrumAI Gateway API! Documentation is available at https://docs.altrum.ai/ai-gateway"
+}
+```
+
+### Step 2: Send Your First Request
+
+Now let's send a simple chat completion request. This example uses OpenAI, but you can adapt it for any supported provider.
+
+#### Basic Chat Completion
+
+```bash Chat Completion Request lines icon="bash"
+curl -X POST https://gateway.altrum.ai/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your-openai-api-key" \
+  -H "x-provider-name: openai" \
+  -H "x-altrumai-key: your-ai-system-api-key-from-altrumai" \
+  -d '{
+    "model": "gpt-4o-mini",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello! Can you tell me a joke?"
+      }
+    ],
+    "max_tokens": 100
+  }'
+```
+
+#### Expected Response
+
+If everything is working correctly, you should receive a response like:
+
+```json Response lines icon="json"
+{
+  "id": "chatcmpl-123",
+  "object": "chat.completion",
+  "created": 1677652288,
+  "model": "gpt-4o-mini",
+  "provider": "openai",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Why don't scientists trust atoms? Because they make up everything! 😄"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 9,
+    "completion_tokens": 15,
+    "total_tokens": 24
+  }
+}
+```
+
+### Step 3: Check Different Providers (Based on Providers you enabled for your AI System in AltrumAI platform)
+
+Once you have confirmed the basic request works, try testing with different providers:
+
+#### Anthropic Claude
+
+```bash Anthropic Claude Request lines icon="bash"
+curl -X POST https://gateway.altrum.ai/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "x-provider-name: anthropic" \
+  -H "x-api-key: your-anthropic-api-key" \
+  -H "x-altrumai-key: your-ai-system-api-key-from-altrumai" \
+  -d '{
+    "model": "claude-3-5-haiku-20241022",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is 2 + 2?"
+      }
+    ],
+    "max_tokens": 50
+  }'
+```
+
+#### Google Gemini
+
+```bash Google Gemini Request lines icon="bash"
+curl -X POST https://gateway.altrum.ai/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "x-provider-name: google" \
+  -H "x-goog-api-key: your-google-api-key" \
+  -H "x-altrumai-key: your-ai-system-api-key-from-altrumai" \
+  -d '{
+    "model": "gemini-1.5-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Explain quantum computing in one sentence."
+      }
+    ],
+    "max_tokens": 100
+  }'
+```
+
+### Step 4: Verify Multi-Model Support
+
+Test that you can switch between different models seamlessly:
+
+```bash Multi-Model Test lines icon="bash"
+# Test with GPT-4o
+curl -X POST https://gateway.altrum.ai/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your-openai-api-key" \
+  -H "x-provider-name: openai" \
+  -H "x-altrumai-key: your-ai-system-api-key-from-altrumai" \
+  -d '{
+    "model": "gpt-4o",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Solve this math problem: 15 * 23 + 7"
+      }
+    ],
+    "max_tokens": 50
+  }'
+
+# Test with Claude Sonnet
+curl -X POST https://gateway.altrum.ai/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "x-provider-name: anthropic" \
+  -H "x-api-key: your-anthropic-api-key" \
+  -H "x-altrumai-key: your-ai-system-api-key-from-altrumai" \
+  -d '{
+    "model": "claude-3-5-sonnet-20241022",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Solve this math problem: 15 * 23 + 7"
+      }
+    ],
+    "max_tokens": 50
+  }'
+```
+
+### Troubleshooting
+
+#### Common Issues
+
+**Gateway Not Responding**
+```bash Troubleshooting Commands lines icon="bash"
+# Check if gateway is accessible
+curl -v https://gateway.altrum.ai/
+
+# Check for network connectivity
+ping gateway.altrum.ai
+```
+
+**Authentication Errors**
+- Verify your AltrumAI API key is correct
+- Ensure you are using the right provider header
+
+**Model Not Found**
+- Verify the model name is correct
+- Check that your API key has access to the requested model
+- Ensure the AI provider supports the model you are trying to use
+
+**Rate Limiting**
+- Check your AI provider's rate & quota limits
+
+
+### Next Steps
+
+Congratulations! Your AI Gateway is working. Now you can:
+
+<Card
+  title="Implement Guardrails"
+  icon="shield-halved"
+  href="/guardrails/harmful-content"
+  arrow="true"
+  cta="Configure Guardrails"
+>
+  Add content filtering and data protection to secure your AI applications with automated compliance controls.
+</Card>
+
+<Card
+  title="Monitor Violations"
+  icon="chart-line"
+  href="/product-guide/observability"
+  arrow="true"
+  cta="Set Up Monitoring"
+>
+  Set up observability and reporting to track AI usage, violations, and compliance status in real-time.
+</Card>
+
+<Card
+  title="Explore Advanced Features"
+  icon="rocket"
+  href="/ai-gateway/Features/unified-api"
+  arrow="true"
+  cta="Discover Features"
+>
+  Try tool calling, streaming, and response formatting to unlock the full potential of your AI Gateway.
+</Card>
